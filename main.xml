@@ -1,0 +1,41 @@
+<mujoco model="Desk_Scene_Converted">
+<compiler angle="degree" coordinate="local" inertiafromgeom="true"/>
+<option timestep="0.005" gravity="0 0 -9.81"/>
+<asset>
+<material name="desk_wood" rgba="0.55 0.35 0.2 1" reflectance="0.2"/>
+<material name="lamp_metal" rgba="0.8 0.8 0.85 1" reflectance="0.6"/>
+<material name="lamp_light" rgba="1.0 1.0 0.9 1" emission="0.8"/>
+<material name="book_cover" rgba="0.2 0.3 0.8 1" reflectance="0.3"/>
+<material name="book_pages" rgba="0.95 0.95 0.9 1"/>
+<material name="floor_mat" rgba="0.3 0.3 0.3 1"/>
+</asset>
+<worldbody>
+<light directional="true" pos="0 0 3" dir="0 0 -1" diffuse="0.8 0.8 0.8"/>
+<geom name="floor" type="box" size="5 5 0.05" pos="0 0 -0.05" material="floor_mat"/>
+<body name="desk_body" pos="0 0 0.75">
+<geom name="desk_top" type="box" size="0.6 0.35 0.025" material="desk_wood"/>
+<geom type="cylinder" size="0.02 0.375" pos="0.55 0.3 -0.375" rgba="0.2 0.2 0.2 1"/>
+<geom type="cylinder" size="0.02 0.375" pos="-0.55 0.3 -0.375" rgba="0.2 0.2 0.2 1"/>
+<geom type="cylinder" size="0.02 0.375" pos="0.55 -0.3 -0.375" rgba="0.2 0.2 0.2 1"/>
+<geom type="cylinder" size="0.02 0.375" pos="-0.55 -0.3 -0.375" rgba="0.2 0.2 0.2 1"/>
+</body>
+<body name="desk_lamp" pos="-0.3 0.1 0.775">
+<geom name="lamp_base" type="cylinder" size="0.08 0.01" material="lamp_metal"/>
+<geom name="lamp_stem" type="cylinder" size="0.01 0.175" pos="0 0 0.175" material="lamp_metal"/>
+<body name="lamp_head_body" pos="0 0 0.35">
+<geom name="lamp_head" type="sphere" size="0.06" material="lamp_light"/>
+<light name="lamp_spot" pos="0 0 0" dir="0 0 -1" diffuse="1 1 0.8" cutoff="45"/>
+</body>
+</body>
+<body name="book_1" pos="-0.05 0 0.8">
+<freejoint/>
+<geom name="book_1_cover" type="box" size="0.125 0.09 0.01" material="book_cover"/>
+<geom name="book_1_pages" type="box" size="0.115 0.08 0.008" pos="0 0 0.002" material="book_pages"/>
+</body>
+<body name="book_2" pos="-0.02 0.02 0.822">
+<freejoint/>
+<geom name="book_2_cover" type="box" size="0.125 0.09 0.01" material="book_cover"/>
+<geom name="book_2_pages" type="box" size="0.115 0.08 0.008" pos="0 0 0.002" material="book_pages"/>
+</body>
+</worldbody>
+</mujoco>
